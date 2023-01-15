@@ -1,0 +1,9 @@
+Scanner sc = new Scanner(System.in);
+        long N = sc.nextLong();
+        long p = sc.nextLong();
+
+        long numZeroes = (N + 2 * p) * (N + 2 * p) - N * N;
+            
+        System.out.print(numZeroes);
+        }
+      }
