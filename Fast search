@@ -1,0 +1,42 @@
+Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        Arrays.sort(a);
+        int k = sc.nextInt();
+        
+        while (k-- > 0) {
+            int l = sc.nextInt();
+            int r = sc.nextInt();
+            int left = 0;
+            int right = n - 1;
+            int leftIndex = -1;
+            int rightIndex = -1;
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+                if (a[mid] >= l) {
+                    leftIndex = mid;
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            left = 0;
+            right = n - 1;
+            while (left <= right) {
+                int mid = (left + right) / 2;
+                if (a[mid] <= r) {
+                    rightIndex = mid;
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            int count = 0;
+            if (leftIndex != -1 && rightIndex != -1) {
+                count = rightIndex - leftIndex + 1;
+            }
+            System.out.print(count + " ");
+        }
