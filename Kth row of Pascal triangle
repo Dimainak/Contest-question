@@ -1,0 +1,22 @@
+class Main {
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc=new Scanner(System.in);
+        int k=sc.nextInt();
+        int mod=1000000007;
+        int [] prevRow=new int[k+1];
+        prevRow[0] =1;
+        for(int i=1;i<=k;i++){
+            int[] currRow =new int[k+1];
+            currRow[0]=1;
+            for(int j=1;j<i;j++){
+                currRow[j]=(prevRow[j-1]+prevRow[j])%mod;
+            }
+            currRow[i]=1;
+            prevRow=currRow;
+        }
+        for(int i=0;i<=k;i++){
+            System.out.print(prevRow[i] + " ");
+        }
+    }
+}
