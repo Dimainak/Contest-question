@@ -1,0 +1,25 @@
+class Main {
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=0;i<t;i++){
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+        Set<Integer> numbers=new HashSet<>();
+        Queue<Integer> queue=new LinkedList<>();
+        queue.add(a);
+        for(int j=0;j<=b;j++){
+            int size=queue.size();
+            for(int k=0;k<size;k++){
+                int num=queue.poll();
+                numbers.add(num);
+                queue.add(num+3);
+                queue.add(num-3);
+                queue.add(num*2);
+            }
+        }
+        System.out.println(numbers.size());
+        }
+    }
+}
