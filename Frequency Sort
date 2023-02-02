@@ -1,0 +1,38 @@
+class Main {
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int a[]=new int[n];
+            for(int i=0;i<n;i++){
+                a[i]=sc.nextInt();
+            }
+            HashMap<Integer,Integer> mp=new HashMap<>();
+            ArrayList<Integer> list=new ArrayList<>();
+            for(int i:a){
+                int count=mp.getOrDefault(i,0);
+                mp.put(i,count+1);
+                list.add(i);
+            }
+            SortComparator comp=new SortComparator(mp);
+            Collections.sort(list,comp);
+            for(Integer i: list)System.out.print(i + " ");
+            System.out.println();
+        }
+    }
+}
+class SortComparator implements Comparator<Integer>{
+    private final HashMap<Integer,Integer> freqMap;
+    SortComparator(HashMap<Integer,Integer>tFreqMap){
+        this.freqMap=tFreqMap;
+    }
+    @Override
+    public int compare(Integer k1,Integer k2){
+        int freqComp=freqMap.get(k2).compareTo(freqMap.get(k1));
+        int value=k1.compareTo(k2);
+        if(freqComp==0)return value;
+        else return freqComp;
+    }
+}
