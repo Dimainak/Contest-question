@@ -1,0 +1,26 @@
+class Main {
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int m = sc.nextInt();
+    int maxRow = -1;
+    int maxCount = -1;
+    int rowIndex = 0;
+    for (int i = 0; i < n; i++) {
+      int count = 0;
+      for (int j = 0; j < m; j++) {
+        int num = sc.nextInt();
+        if (num == 1) {
+          count++;
+        }
+      }
+      if (count > maxCount) {
+        maxCount = count;
+        maxRow = rowIndex;
+      }
+      rowIndex++;
+    }
+    System.out.println(maxRow);
+    }
+}
