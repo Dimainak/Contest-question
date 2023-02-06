@@ -1,0 +1,26 @@
+class Main {
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] hps = new int[n];
+        for (int i = 0; i < n; i++) {
+            hps[i] = sc.nextInt();
+        }
+        int time = 0;
+        while (hps[k] > 0) {
+            for (int i = 0; i < n; i++) {
+                if (hps[i] > 0) {
+                    hps[i]--;
+                    time++;
+                    if (hps[k] == 0) {
+                        break;
+                    }
+                }
+            }
+        }
+        System.out.println(time);
+
+    }
+}
