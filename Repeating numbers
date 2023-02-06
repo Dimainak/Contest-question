@@ -1,0 +1,26 @@
+class Main {
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[] nums1 = new int[n];
+        int[] nums2 = new int[m];
+        Set<Integer> set = new HashSet<>();
+        Set<Integer> res = new TreeSet<>();
+
+        for (int i = 0; i < n; i++) {
+            nums1[i] = sc.nextInt();
+            set.add(nums1[i]);
+        }
+        for (int i = 0; i < m; i++) {
+            nums2[i] = sc.nextInt();
+            if (set.contains(nums2[i])) {
+                res.add(nums2[i]);
+            }
+        }
+        for (Integer num : res) {
+            System.out.print(num + " ");
+        }
+    }
+}
