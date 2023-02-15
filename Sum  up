@@ -1,0 +1,16 @@
+int main() {
+	// Your code here
+    int a, b; cin>>a>>b;
+    long long sum =0;
+    while(a<=b){
+        int k=a;
+        while(!(k&1)){
+            sum+=k;
+            k/=2;
+        }
+        a++;
+
+    }
+    cout<<sum;
+    return 0;
+}
