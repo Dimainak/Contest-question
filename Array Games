@@ -1,0 +1,37 @@
+class Main {
+    public static void main (String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int n= sc.nextInt();
+        int k= sc.nextInt();
+        int []A= new int[n];
+        for(int i=0; i<n; i++){
+            A[i]= sc.nextInt();
+
+        }
+        int max_size =maxSubarraySize(A,k);
+        System.out.println(max_size);
+
+        // Your code here
+    }
+    public static int maxSubarraySize(int [] A, int K){
+        int n= A.length;
+        int max_size=0;
+        int left =0;
+        for(int right=0; right<n; right++){
+            int min_val =Integer.MAX_VALUE;
+            int max_val= Integer.MIN_VALUE;
+            for(int i=left; i<=right ; i++){
+                min_val=Math.min(min_val, A[i]);
+                max_val= Math.max(max_val, A[i]);
+            }
+            if(max_val- min_val> K){
+                left++;
+            }
+            else{
+                max_size =Math.max(max_size, right-left+1);
+            }
+
+        }
+        return max_size;
+    }
+}
