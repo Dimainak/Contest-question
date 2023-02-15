@@ -1,0 +1,20 @@
+class Main {
+    public static void main (String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int q = sc.nextInt();
+        HashSet<Integer> elements = new HashSet<>();
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                
+                elements.add(sc.nextInt());
+            }
+        }
+        for(int i = 0; i<q; i++){
+            System.out.println(elements.contains(sc.nextInt()) ? "Yes" : "No");
+        }
+            sc.close();
+        
+    }
+}
